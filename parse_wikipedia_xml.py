@@ -124,7 +124,7 @@ class Dumper():
 
   def article_callback(self, title: str, text: str):
     self.quota -= 1
-    self.docs.append({ 'title': title, 'text': text})
+    self.docs.append({ 'title': title, 'text': text })
     if self.quota % 1000 == 0:
       print('Quota left: ', self.quota)
     if self.quota <= 0:
@@ -132,8 +132,7 @@ class Dumper():
 
 dumper = Dumper(num_docs=100_000)
 try:
-  # https://dumps.wikimedia.org/enwiki/latest/enwiki-latest-pages-articles-multistream.xml.bz2
-  with open('enwiki-latest-pages-articles-multistream.xml', 'r') as f:
+  with open('wiki.xml', 'r') as f:
     parser = xml.sax.make_parser()
     # filter namespace to articles (0).
     filter_namespace = lambda ns: ns==0
