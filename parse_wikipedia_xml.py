@@ -145,8 +145,9 @@ try:
     )
     parser.parse(f)
 except DumperMaxDocumentsException:
-  with open('wikipedia.txt', 'w') as f:
-    print(len([json.dumps(i) for i in dumper.docs]))
-    for i in dumper.docs:
-      f.write(json.dumps(i))
-      f.write('\n')
+  pass
+with open('wikipedia.txt', 'w') as f:
+  print(f"Writing {len([i for i in dumper.docs])} documents")
+  for i in dumper.docs:
+    f.write(json.dumps(i))
+    f.write('\n')
